@@ -5,6 +5,7 @@
  */
 package textprocessor;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,7 +21,7 @@ import javafx.stage.Stage;
 public class TextProcessor extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
@@ -33,6 +34,9 @@ public class TextProcessor extends Application {
         
         StackPane root = new StackPane();
         root.getChildren().add(btn);
+        
+        TxtFileUnit text = new TxtFileUnit();
+        
         
         Scene scene = new Scene(root, 300, 250);
         
