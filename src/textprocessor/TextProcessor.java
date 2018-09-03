@@ -35,7 +35,7 @@ public class TextProcessor extends Application {
         StackPane root = new StackPane();
         root.getChildren().add(btn);
         
-        TxtFileUnit text = new TxtFileUnit();
+        TxtFileUnit text = new TxtFileUnit("src/textprocessor/testTxt.txt");
         
         
         Scene scene = new Scene(root, 300, 250);

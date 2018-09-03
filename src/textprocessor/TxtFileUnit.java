@@ -18,9 +18,29 @@ import java.nio.file.Paths;
  */
 public class TxtFileUnit {
     
-    public TxtFileUnit() throws IOException{
-    Path path = Paths.get("src/textprocessor/testTxt.txt");
-    BufferedReader r = Files.newBufferedReader(path, StandardCharsets.UTF_8); 
-    r.lines().forEach(System.out::println);
+    private final BufferedReader reader;
+    
+    
+    public TxtFileUnit(String filePath) throws IOException{
+    Path path = Paths.get(filePath);
+    reader = Files.newBufferedReader(path, StandardCharsets.UTF_8); 
+    //reader.lines().forEach(System.out::println);
+    }
+    
+    public BufferedReader getFileReader() {
+    return reader;
+    }
+
+    public String[] getFileStringArray() throws IOException {
+        String[] stringArray = new String[(int)reader.lines().count()];
+        String line;
+        int i = 0;
+        while((line = reader.readLine()) != null){
+            stringArray[i] = line;
+            i++;
+        }
+        return stringArray;
     }
 }
+
+
